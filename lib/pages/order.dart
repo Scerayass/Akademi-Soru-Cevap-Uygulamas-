@@ -147,7 +147,7 @@ class _SecondPageStatee extends State<SecondPageStatee> {
         return GestureDetector(
           onTap: (){
             //Navigator.pushNamed(context,'/girdi/sorunlar/chat' );
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChatPage(sortedPosts[index]["baslik"], sortedPosts[index]["metin"], sortedPosts[index]["name"])));
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChatPage(sortedPosts[index]["baslik"], sortedPosts[index]["metin"], sortedPosts[index]["name"],sortedPosts[index]["alan"])));
             },
           child: Container(
             width: 100,
@@ -204,13 +204,19 @@ class _SecondPageStatee extends State<SecondPageStatee> {
                   margin: EdgeInsets.only(top: 10),
                   child: Column(
                     children: [
-                      Text(
-                        sortedPosts[index]["baslik"],
-                        style: TextStyle(
-                            fontFamily: "Roboto",
-                            overflow: TextOverflow.ellipsis,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14),
+                      Container(
+
+                        child: Text(
+                          sortedPosts[index]["baslik"],
+                          style: TextStyle(
+                              fontFamily: "Roboto",
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                        ),
+                        width: 200,
+                        height: 20,
                       ),
                       SizedBox(
                         height: 6,
